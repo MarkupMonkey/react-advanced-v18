@@ -7,10 +7,16 @@ const UseEffectBasics = () => {
 
   useEffect(() => {
     console.log('call useEffect')
-    if (value > 1) {
+    if (value >= 1) {
       document.title = `New Messages(${value})`
     }
-  });
+  }, [value]); // every time this value change we call useEffect  
+
+
+  useEffect(() => {
+    console.log('hello world');
+  }, []) // call useEffect the first time when component is render
+
   console.log('render component')
   return <>
     <h1>{value}</h1>
